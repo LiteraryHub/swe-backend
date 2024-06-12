@@ -58,6 +58,59 @@ npm start
 
 The server will start on port 3001 or the port specified in your environment variables.
 
+### Creating the docker image
+Use the docker engine to build the image from current code:
+
+This command will list details such as the image ID, repository, tag, and size for each image. It's useful for managing your Docker images, including removing old or unused ones to free up disk space.
+
+
+Use the docker engine to create a docker container and run a particular image with image name:
+```
+docker build -t literaryhub_ai_backend_image:latest .
+```
+
+## Pushing the docker image to Docker Hub
+After creating the image locally, you'll want to push it to Docker Hub as follows:
+
+```bash
+docker tag literaryhub_swe_backend_image:latest literaryhub/swe-backend:latest
+docker push literaryhub/swe-backend:latest
+```
+
+### Running the docker image locally
+
+Disclaimer: The host 0.0.0.0 specified in the Dockerfile does not accept connections locally.
+In order to run the docker image locally, a local modification to the host specified in the Dockerfile
+is necessary, to 127.0.0.1, but please do not submit this change because it is likely to break our
+deployment process.
+
+Use the docker engine to create a docker container and run a particular image:
+```
+sudo docker run -d -p 3001:3001 literaryhub_swe_backend_image:latest
+```
+
+To see all the containers that you have locally, run:
+
+```
+docker ps -a
+```
+
+To see what containers are current running, remove the `-a` parameter.
+
+Notes: 
+- In order to see the logs on the container, use its Container ID, e.g.,
+```
+docker logs <container_id>
+```
+
+After a container has been created with the previous command, you can stop/start it using the commands:
+```
+docker start <container_id>
+sudo docker end <container_id>
+```
+Note: you can't reuse the same container name multiple times, even if you're running the same image.
+
+
 ## Features
 
 - User Authentication: The application supports user authentication with different roles such as 'Reader', 'Author', and 'Publisher'. This is implemented in the [`User`](model/user.js) model.
@@ -70,4 +123,3 @@ The server will start on port 3001 or the port specified in your environment var
 - [Express](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [Mongoose](https://mongoosejs.com/)
-
