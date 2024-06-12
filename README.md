@@ -1,6 +1,6 @@
 # LiteraryHub - SWE Backend README
 
-This repository contains the backend code for the LiteraryHub plaform. It is built with Node.js, Express, and MongoDB. The application provides functionalities such as user authentication, book ratings, and managing book information. The backend code is responsible for handling all the server-side logic and database connections. The frontend code can be found in the [swe-frontend]() repository. 
+This repository contains the backend code for the LiteraryHub plaform. It is built with Node.js, Express, and MongoDB. The application provides functionalities such as user authentication, book ratings, and managing book information. The backend code is responsible for handling all the server-side logic and database connections. The frontend code can be found in the [swe-frontend](https://github.com/LiteraryHub/swe-frontend) repository. 
 
 ## Overview
 
